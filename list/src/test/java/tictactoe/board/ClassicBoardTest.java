@@ -1,10 +1,13 @@
 package tictactoe.board;
 
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ClassicBoardTest {
+
     @Test
     public void mark_markValidPosition() {
         Board board = new ClassicBoard();

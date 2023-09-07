@@ -1,15 +1,17 @@
 package tictactoe.board;
 
-import java.security.PrivateKey;
-import java.security.PublicKey;
-
 public class ClassicBoard implements Board {
-    private static final int BOARD_LENGTH = 3;
+    private final int BOARD_LENGTH;
 
     private int[][] board;
 
-    public ClassicBoard() {
-        this.board = new int[BOARD_LENGTH][BOARD_LENGTH];
+    public ClassicBoard(int[][] board, int boardLength) {
+        this.board = board;
+        BOARD_LENGTH = boardLength;
+    }
+
+    protected ClassicBoard() {
+        this(new int[3][3], 3);
     }
     @Override
     public boolean mark(int x, int y, int player) {
@@ -28,6 +30,5 @@ public class ClassicBoard implements Board {
     private boolean positionIsEmpty(int x, int y) {
         return this.board[x][y] == 0;
     }
-
 
 }
