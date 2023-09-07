@@ -1,5 +1,7 @@
 package tictactoe.gamecontrollers;
 
+import static tictactoe.gamecontrollers.CoordinateValidator.*;
+
 public class WinController {
 
     private final int BOARD_LENGTH;
@@ -12,7 +14,7 @@ public class WinController {
     }
 
     public boolean hasWon(int x, int y, int player) {
-        return checkWinConditions(x, y, player);
+        return coordinatesAreValid(x, y, BOARD_LENGTH) && checkWinConditions(x, y, player);
     }
 
     public boolean checkWinConditions(int x, int y, int player) {

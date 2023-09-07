@@ -1,5 +1,7 @@
 package tictactoe.board;
 
+import static tictactoe.gamecontrollers.CoordinateValidator.*;
+
 public class ClassicBoard implements Board {
     private final int BOARD_LENGTH;
 
@@ -15,16 +17,12 @@ public class ClassicBoard implements Board {
     }
     @Override
     public boolean mark(int x, int y, int player) {
-        if (coordinateIsValid(x) && coordinateIsValid(y) && positionIsEmpty(x, y)) {
+        if (coordinatesAreValid(x, y, BOARD_LENGTH) && positionIsEmpty(x, y)) {
             this.board[x][y] = player;
             return true;
         }
 
         return false;
-    }
-
-    private boolean coordinateIsValid(int coordinate) {
-        return coordinate >= 0 && coordinate < BOARD_LENGTH;
     }
 
     private boolean positionIsEmpty(int x, int y) {
