@@ -4,6 +4,7 @@
 
 plugins {
     id 'tictactoe.java-application-conventions'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
 }
 
 dependencies {
@@ -14,4 +15,13 @@ dependencies {
 application {
     // Define the main class for the application.
     mainClass = 'tictactoe.app.App'
+}
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = "16"
+    modules = [ 'javafx.controls' ]
 }

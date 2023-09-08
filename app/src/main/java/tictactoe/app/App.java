@@ -3,19 +3,28 @@
  */
 package tictactoe.app;
 
-import tictactoe.list.LinkedList;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import tictactoe.components.FxBoard;
+import tictactoe.eventHandlers.RectangleClickHandler;
+import tictactoe.game.GameController;
+import tictactoe.panes.BoardPane;
 
-import static tictactoe.utilities.StringUtils.join;
-import static tictactoe.utilities.StringUtils.split;
-import static tictactoe.app.MessageUtils.getMessage;
 
-import org.apache.commons.text.WordUtils;
+public class App extends Application {
+    private final static int BOARD_LENGTH = 3;
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        GameController gameController = new GameController(new int[BOARD_LENGTH][BOARD_LENGTH], BOARD_LENGTH);
+        FxBoard fxBoard = new FxBoard();
+        Pane pane = new BoardPane(gameController, fxBoard).getPane();
 
-public class App {
-    public static void main(String[] args) {
-        LinkedList tokens;
-        tokens = split(getMessage());
-        String result = join(tokens);
-        System.out.println(WordUtils.capitalize(result));
+        Scene scene = new Scene(pane);
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 }

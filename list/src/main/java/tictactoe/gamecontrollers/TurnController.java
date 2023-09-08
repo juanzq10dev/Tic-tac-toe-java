@@ -34,4 +34,8 @@ public class TurnController {
     public boolean allTurnsHavePassed() {
         return currTurn == maxTurns;
     }
+
+    public int getCurrPlayer() {
+        return currPlayer;
+    }
 }
