@@ -2,9 +2,9 @@ package tictactoe.eventHandlers;
 
 import javafx.scene.Group;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import tictactoe.board.Board;
-import tictactoe.components.FxPlayerImage;
-import tictactoe.components.FxRectangle;
+import tictactoe.components.*;
 import tictactoe.game.GameController;
 import tictactoe.gamecontrollers.TurnController;
 
@@ -15,11 +15,10 @@ public class RectangleClickHandler {
             int y = fxRectangle.getYCoordinate();
 
             if (gameController.tryMark(x, y)) {
-                FxPlayerImage playerImage = new FxPlayerImage(x, y, gameController.getCurrPlayer());
+                StackPane stackPane = new FXPlayerIcons(x, y, gameController.getCurrPlayer());
                 gameController.changePlayerTurn();
 
-
-                pane.getChildren().add(playerImage);
+                pane.getChildren().add(stackPane);
             };
         });
     }
